@@ -103,22 +103,24 @@ function a11yProps(index) {
 const techStacks = [
   { icon: "java.svg", language: "Java" },
   { icon: "cpp.svg", language: "C++ 17" },
-  { icon: "python.svg", language: "Python" },
-  { icon: "html.svg", language: "HTML" },
-  { icon: "css.svg", language: "CSS" },
   { icon: "reactjs.svg", language: "ReactJS" },
   { icon: "nextjs.svg", language: "NextJS" },
-  { icon: "vite.svg", language: "Vite" },
-  { icon: "nodejs.svg", language: "Node JS" },
-  { icon: "spring.svg", language: "Spring MVS" },
-  { icon: "wordpress.svg", language: "WordPress" },
-  { icon: "sqlite.svg", language: "SQLite" },
+  { icon: "nestjs.svg", language: "NestJS" },
+  { icon: "nodejs.svg", language: "NodeJS" },
+  { icon: "typescript.svg", language: "TypeScript" },
   { icon: "mongodb.svg", language: "MongoDB" },
+  { icon: "wordpress.svg", language: "WordPress" },
+  { icon: "shopify.svg", language: "Shopify" },
+  { icon: "graphql.svg", language: "GraphQL" },
+  { icon: "prisma.svg", language: "Prisma" },
   { icon: "firebase.svg", language: "Firebase" },
   { icon: "postgresql.svg", language: "PostgreSQL" },
   { icon: "docker.svg", language: "Docker" },
+  { icon: "kubernetes.svg", language: "Kubernetes" },
+  { icon: "jenkins.svg", language: "Jenkins" },
   { icon: "git.svg", language: "Git" },
   { icon: "vercel.svg", language: "Vercel" },
+  { icon: "gcp.svg", language: "Google Cloud" },
 ];
 
 export default function FullWidthTabs() {
@@ -176,33 +178,48 @@ export default function FullWidthTabs() {
   };
 
   const toggleShowMore = useCallback((type) => {
-    if (type === 'projects') {
-      setShowAllProjects(prev => !prev);
+    if (type === "projects") {
+      setShowAllProjects((prev) => !prev);
     } else {
-      setShowAllCertificates(prev => !prev);
+      setShowAllCertificates((prev) => !prev);
     }
   }, []);
 
-  const displayedProjects = showAllProjects ? projects : projects.slice(0, initialItems);
-  const displayedCertificates = showAllCertificates ? certificates : certificates.slice(0, initialItems);
+  const displayedProjects = showAllProjects
+    ? projects
+    : projects.slice(0, initialItems);
+  const displayedCertificates = showAllCertificates
+    ? certificates
+    : certificates.slice(0, initialItems);
 
   return (
-    <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portofolio">
+    <div
+      className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden"
+      id="Portofolio"
+    >
       {/* Header section - unchanged */}
-      <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="1000">
+      <div
+        className="text-center pb-10"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
-          <span style={{
-            color: '#6366f1',
-            backgroundImage: 'linear-gradient(45deg, #6366f1 10%, #a855f7 93%)',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}>
+          <span
+            style={{
+              color: "#6366f1",
+              backgroundImage:
+                "linear-gradient(45deg, #6366f1 10%, #a855f7 93%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             Portfolio Showcase
           </span>
         </h2>
         <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2">
-          Explore key milestones in my journey—projects, certifications, and skills that reflect my passion for growth and technology
+          Explore key milestones in my journey—projects, certifications, and
+          skills that reflect my passion for growth and technology
         </p>
       </div>
 
@@ -224,7 +241,8 @@ export default function FullWidthTabs() {
               left: 0,
               right: 0,
               bottom: 0,
-              background: "linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(59, 130, 246, 0.03) 100%)",
+              background:
+                "linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, rgba(59, 130, 246, 0.03) 100%)",
               backdropFilter: "blur(10px)",
               zIndex: 0,
             },
@@ -261,7 +279,8 @@ export default function FullWidthTabs() {
                 },
                 "&.Mui-selected": {
                   color: "#fff",
-                  background: "linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2))",
+                  background:
+                    "linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2))",
                   boxShadow: "0 4px 15px -3px rgba(139, 92, 246, 0.2)",
                   "& .lucide": {
                     color: "#a78bfa",
@@ -277,17 +296,23 @@ export default function FullWidthTabs() {
             }}
           >
             <Tab
-              icon={<Code className="mb-2 w-5 h-5 transition-all duration-300" />}
+              icon={
+                <Code className="mb-2 w-5 h-5 transition-all duration-300" />
+              }
               label="Projects"
               {...a11yProps(0)}
             />
             <Tab
-              icon={<Award className="mb-2 w-5 h-5 transition-all duration-300" />}
+              icon={
+                <Award className="mb-2 w-5 h-5 transition-all duration-300" />
+              }
               label="Certificates"
               {...a11yProps(1)}
             />
             <Tab
-              icon={<Boxes className="mb-2 w-5 h-5 transition-all duration-300" />}
+              icon={
+                <Boxes className="mb-2 w-5 h-5 transition-all duration-300" />
+              }
               label="Tech Stack"
               {...a11yProps(2)}
             />
@@ -305,8 +330,20 @@ export default function FullWidthTabs() {
                 {displayedProjects.map((project, index) => (
                   <div
                     key={project.id || index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
+                    data-aos={
+                      index % 3 === 0
+                        ? "fade-up-right"
+                        : index % 3 === 1
+                          ? "fade-up"
+                          : "fade-up-left"
+                    }
+                    data-aos-duration={
+                      index % 3 === 0
+                        ? "1000"
+                        : index % 3 === 1
+                          ? "1200"
+                          : "1000"
+                    }
                   >
                     <CardProject
                       Img={project.Img}
@@ -322,7 +359,7 @@ export default function FullWidthTabs() {
             {projects.length > initialItems && (
               <div className="mt-6 w-full flex justify-start">
                 <ToggleButton
-                  onClick={() => toggleShowMore('projects')}
+                  onClick={() => toggleShowMore("projects")}
                   isShowingMore={showAllProjects}
                 />
               </div>
@@ -335,8 +372,20 @@ export default function FullWidthTabs() {
                 {displayedCertificates.map((certificate, index) => (
                   <div
                     key={index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
+                    data-aos={
+                      index % 3 === 0
+                        ? "fade-up-right"
+                        : index % 3 === 1
+                          ? "fade-up"
+                          : "fade-up-left"
+                    }
+                    data-aos-duration={
+                      index % 3 === 0
+                        ? "1000"
+                        : index % 3 === 1
+                          ? "1200"
+                          : "1000"
+                    }
                   >
                     <Certificate ImgSertif={certificate.Img} />
                   </div>
@@ -346,7 +395,7 @@ export default function FullWidthTabs() {
             {certificates.length > initialItems && (
               <div className="mt-6 w-full flex justify-start">
                 <ToggleButton
-                  onClick={() => toggleShowMore('certificates')}
+                  onClick={() => toggleShowMore("certificates")}
                   isShowingMore={showAllCertificates}
                 />
               </div>
@@ -359,10 +408,25 @@ export default function FullWidthTabs() {
                 {techStacks.map((stack, index) => (
                   <div
                     key={index}
-                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
-                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
+                    data-aos={
+                      index % 3 === 0
+                        ? "fade-up-right"
+                        : index % 3 === 1
+                          ? "fade-up"
+                          : "fade-up-left"
+                    }
+                    data-aos-duration={
+                      index % 3 === 0
+                        ? "1000"
+                        : index % 3 === 1
+                          ? "1200"
+                          : "1000"
+                    }
                   >
-                    <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
+                    <TechStackIcon
+                      TechStackIcon={stack.icon}
+                      Language={stack.language}
+                    />
                   </div>
                 ))}
               </div>

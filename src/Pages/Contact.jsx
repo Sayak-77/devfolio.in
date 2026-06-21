@@ -36,12 +36,12 @@ const ContactPage = () => {
     setIsSubmitting(true);
 
     Swal.fire({
-      title: 'Sending Message...',
-      html: 'Please wait while we send your message',
+      title: "Sending Message...",
+      html: "Please wait while we send your message",
       allowOutsideClick: false,
       didOpen: () => {
         Swal.showLoading();
-      }
+      },
     });
 
     try {
@@ -54,36 +54,38 @@ const ContactPage = () => {
       formPayload.append("_captcha", "false");
 
       // Send manually using fetch
-      const response = await fetch("https://formsubmit.co/sayakascent@gmail.com", {
-        method: "POST",
-        body: formPayload
-      });
+      const response = await fetch(
+        "https://formsubmit.co/sayakascent@gmail.com",
+        {
+          method: "POST",
+          body: formPayload,
+        },
+      );
 
       if (!response.ok) throw new Error("Failed to send");
 
       // Show success message
       await Swal.fire({
-      title: 'Success!',
-      text: 'Your message has been sent successfully!',
-      icon: 'success',
-      confirmButtonColor: '#6366f1',
-      confirmButtonText: 'OK',
-    });
+        title: "Success!",
+        text: "Your message has been sent successfully!",
+        icon: "success",
+        confirmButtonColor: "#6366f1",
+        confirmButtonText: "OK",
+      });
 
-    navigate("/thank-you");
+      navigate("/thank-you");
 
       setFormData({
         name: "",
         email: "",
         message: "",
       });
-
     } catch (error) {
       Swal.fire({
-        title: 'Error!',
-        text: 'Something went wrong. Please try again later.',
-        icon: 'error',
-        confirmButtonColor: '#6366f1'
+        title: "Error!",
+        text: "Something went wrong. Please try again later.",
+        icon: "error",
+        confirmButtonColor: "#6366f1",
       });
     } finally {
       setIsSubmitting(false);
@@ -124,11 +126,8 @@ const ContactPage = () => {
         className="h-auto py-10 flex items-center justify-center px-[5%] md:px-0"
         id="Contact"
       >
-        <div className="container px-[1%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-[45%_55%] 2xl:grid-cols-[35%_65%] gap-12" >
-          <div
-        
-            className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-500 hover:shadow-[#6366f1]/10"
-          >
+        <div className="container px-[1%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-[45%_55%] 2xl:grid-cols-[35%_65%] gap-12">
+          <div className="bg-white/5 backdrop-blur-xl rounded-3xl shadow-2xl p-5 py-10 sm:p-10 transform transition-all duration-500 hover:shadow-[#6366f1]/10">
             <div className="flex justify-between items-start mb-8">
               <div>
                 <h2 className="text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
@@ -141,7 +140,7 @@ const ContactPage = () => {
               <Share2 className="w-10 h-10 text-[#6366f1] opacity-50" />
             </div>
 
-            <form 
+            <form
               action="https://formsubmit.co/sayakascent@gmail.com"
               method="POST"
               onSubmit={handleSubmit}
@@ -214,7 +213,7 @@ const ContactPage = () => {
                 {/* Button content */}
                 <div className="relative flex items-center justify-center gap-2 z-10">
                   <Send className="w-5 h-5" />
-                  <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                  <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                 </div>
               </button>
             </form>
@@ -225,7 +224,7 @@ const ContactPage = () => {
           </div>
 
           <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-3 py-3 md:p-10 md:py-8 shadow-2xl transform transition-all duration-500 hover:shadow-[#6366f1]/10">
-            <Commentar/>
+            <Commentar />
           </div>
         </div>
       </div>

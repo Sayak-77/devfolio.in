@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./index.css";
 import Home from "./Pages/Home";
 import About from "./Pages/About";
@@ -9,7 +9,7 @@ import Devfolio from "./Pages/Devfolio";
 import ContactPage from "./Pages/Contact";
 import ProjectDetails from "./components/ProjectDetail";
 import WelcomeScreen from "./Pages/WelcomeScreen";
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from "framer-motion";
 import NotFound from "./Pages/404";
 import ThankYouPage from "./Pages/ThankYou";
 import Test from "./Pages/TestCertificateDisplay";
@@ -73,9 +73,17 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />} />
+        <Route
+          path="/"
+          element={
+            <LandingPage
+              showWelcome={showWelcome}
+              setShowWelcome={setShowWelcome}
+            />
+          }
+        />
         <Route path="/project/:id" element={<ProjectPageLayout />} />
-        <Route path="*" element={<NotFound/>} /> 
+        <Route path="*" element={<NotFound />} />
         <Route path="/thank-you" element={<ThankYouPage />} />
         <Route path="/test" element={<Test />} />
       </Routes>

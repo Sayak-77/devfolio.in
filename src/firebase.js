@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"
-import { collection, addDoc, getDocs } from "@firebase/firestore"; // Perbarui ini
-
+import { getFirestore } from "firebase/firestore";
+import { collection, addDoc } from "@firebase/firestore"; // Perbarui ini
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -11,7 +10,7 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
- };
+};
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
